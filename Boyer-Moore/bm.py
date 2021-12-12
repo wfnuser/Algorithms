@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 def get_bc(pattern):
-    bc = dict()
+    bc = dict() # 记录每个badchar最右出现的位置
     for i in range(len(pattern) - 1):
         char = pattern[i]
         bc[char] = i + 1
@@ -9,7 +9,7 @@ def get_bc(pattern):
 
 def get_gs(pattern):
     gs = dict()
-    gs[''] = 0
+    gs[''] = len(pattern)
 
     # suf_len 用于标记后缀长度
     for suf_len in range(len(pattern)):
@@ -25,6 +25,7 @@ def get_gs(pattern):
         if suffix in gs: continue
         gs[suffix] = gs[suffix[1:]]
 
+    gs[''] = 0
     return gs
 
 
@@ -50,8 +51,8 @@ def bm(string, pattern, bc, gs):
 
 
 if __name__ == '__main__':
-    string = 'here is a simple example'
-    pattern = 'efadef'
+    string = 'here is a simple example ' 
+    pattern = 'example'
 
     bc = get_bc(pattern)  # 坏字符表
     gs = get_gs(pattern)  # 好后缀表
