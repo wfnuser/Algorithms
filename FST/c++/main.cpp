@@ -37,6 +37,8 @@ public:
         State* cur = source;
         vector<State*> curStates;
         curStates.push_back(cur);
+
+        // create linked list of states for each character of added key.
         for (auto c: s) {
             if (cur->nextStates.find(c) != cur->nextStates.end()) {
                 (cur->nextStates)[c]->prevStates[cur->tag].push_back(cur);
@@ -69,6 +71,8 @@ public:
                     } else {
                         flag = false;
                     }
+                    // if there is common suffix; we should combine the vertex.
+                    // TODO: should deal with the memory leak problem here.
                     if (flag) {
                         curStates[i-1]->nextStates[s->tag] = s;
                         s->prevStates[curStates[i-1]->tag].push_back(curStates[i-1]);
@@ -92,6 +96,21 @@ public:
 
         return true;
     }
+
+    void print(State* begin, vector<State*>& path) {
+        if (begin == sink) {
+            for (auto s: path) {
+                cout << s->tag << "(" << s << ") -> ";
+            }
+            cout << endl;
+            return;
+        }
+        for (auto s: begin->nextStates) {
+            path.push_back(s.second);
+            print(s.second, path);
+            path.pop_back();
+        }
+    }
 };
 
 int main() {
@@ -103,10 +122,16 @@ int main() {
     SM.add("qp");
     SM.add("zp");
 
+    vector<State*> v = vector<State*>();
+
     cout << SM.get("mop") << endl;
+    SM.print(SM.source, v);
     cout << SM.get("qpr") << endl;
+    SM.print(SM.source, v);
     cout << SM.get("qz") << endl;
+    SM.print(SM.source, v);
     cout << SM.get("zp") << endl;
+    SM.print(SM.source, v);
 
     return 0;
 }
