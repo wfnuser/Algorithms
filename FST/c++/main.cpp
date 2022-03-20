@@ -62,6 +62,9 @@ public:
                 if (s->nextStates.size() != curStates[i]->nextStates.size()) continue;
 
                 bool flag = true;
+                
+                // We can combine two states if they are duplicated.
+                // Which means all of both states' next states are the strictly equal.
                 for (auto p: s->nextStates) {
                     if (curStates[i]->nextStates[p.first] != s->nextStates[p.first]) {
                         flag = false;
@@ -69,7 +72,17 @@ public:
                     }
                 }
                  
-                // if there is common suffix; we should combine the vertex.
+                // Ff there is common suffix; we should combine the vertex. It works just like zipper.
+                /**
+                 * From:
+                 * y -> o -> x -> SINK 
+                 * z -> o -> x -> SINK 
+                 * 
+                 * To:
+                 * y -> o -> x -> SINK
+                 *   /
+                 * z
+                 */
                 // TODO: should deal with the memory leak problem here.
                 if (flag) {
                     curStates[i-1]->nextStates[s->tag] = s;
