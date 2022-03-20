@@ -51,35 +51,33 @@ public:
             curStates.push_back(cur);
         }
         cur->nextStates[' '] = sink;
-
-
+        if (cur != source) sink->prevStates[cur->tag].push_back(cur);
+        
         State* p = sink;
         // compare suffix and try to combine redundant states
         for (int i = curStates.size() - 1; i >= 0; i--) {
             bool combined = false;
-            if (!p->prevStates[curStates[i]->tag].empty()) {
-                for (auto s: p->prevStates[curStates[i]->tag]) {
-                    if (s == curStates[i]) continue;
-                    bool flag = true;
-                    if (s->nextStates.size() == curStates[i]->nextStates.size()) {
-                        for (int idx = 0; idx < s->nextStates.size(); idx++) {
-                            if (curStates[i]->nextStates[idx] != s->nextStates[idx]) {
-                                flag = false;
-                                break;
-                            }
-                        }
-                    } else {
+            for (auto s: p->prevStates[curStates[i]->tag]) {
+                if (s == curStates[i]) continue;
+                if (s->nextStates.size() != curStates[i]->nextStates.size()) continue;
+
+                bool flag = true;
+                for (auto p: s->nextStates) {
+                    if (curStates[i]->nextStates[p.first] != s->nextStates[p.first]) {
                         flag = false;
-                    }
-                    // if there is common suffix; we should combine the vertex.
-                    // TODO: should deal with the memory leak problem here.
-                    if (flag) {
-                        curStates[i-1]->nextStates[s->tag] = s;
-                        s->prevStates[curStates[i-1]->tag].push_back(curStates[i-1]);
-                        p = s;
-                        combined = true;
                         break;
                     }
+                }
+                 
+                // if there is common suffix; we should combine the vertex.
+                // TODO: should deal with the memory leak problem here.
+                if (flag) {
+                    curStates[i-1]->nextStates[s->tag] = s;
+                    s->prevStates[curStates[i-1]->tag].push_back(curStates[i-1]);
+                    p->prevStates[s->tag].pop_back();
+                    p = s;
+                    combined = true;
+                    break;
                 }
             }
             if (!combined) break;
@@ -117,21 +115,19 @@ int main() {
 
     auto SM = StateMachine();
     
-    SM.add("mop");
-    SM.add("mopr");
-    SM.add("qp");
-    SM.add("zp");
-
+    SM.add("mox");
+    SM.add("moxr");
+    SM.add("yox");
+    SM.add("yoxr");
+    SM.add("zox");
+    SM.add("uox");
     vector<State*> v = vector<State*>();
-
-    cout << SM.get("mop") << endl;
     SM.print(SM.source, v);
-    cout << SM.get("qpr") << endl;
-    SM.print(SM.source, v);
-    cout << SM.get("qz") << endl;
-    SM.print(SM.source, v);
-    cout << SM.get("zp") << endl;
-    SM.print(SM.source, v);
+    
+    cout << SM.get("mox") << endl;
+    cout << SM.get("ypx") << endl;
+    cout << SM.get("yz") << endl;
+    cout << SM.get("zx") << endl;
 
     return 0;
 }
