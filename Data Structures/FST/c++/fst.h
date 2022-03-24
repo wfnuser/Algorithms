@@ -1,12 +1,10 @@
-#include<cstdio>
-#include<cstdlib>
 #include<iostream>
 #include<unordered_map>
 #include<vector>
 
-#define INT_MIN -2147483648;
-
 using namespace std;
+
+#define INT_MIN -2147483648;
 
 class State {
 public:
@@ -93,7 +91,9 @@ public:
                 if (flag) {
                     curStates[i-1]->nextStates[s->tag] = make_pair(s, curStates[i]->weight - s->weight);
                     s->prevStates[curStates[i-1]->tag].push_back(curStates[i-1]);
+                    auto tmp = p->prevStates[s->tag].back();
                     p->prevStates[s->tag].pop_back();
+                    delete(tmp);
                     p = s;
                     combined = true;
                     break;
@@ -131,24 +131,3 @@ public:
         }
     }
 };
-
-int main() {
-
-    auto SM = StateMachine();
-    
-    SM.add("mox", 10);
-    SM.add("moxr", 5);
-    SM.add("yox", 2);
-    SM.add("yoxr", 8);
-    SM.add("zox", 6);
-    SM.add("uox", 1);
-    vector<State*> v = vector<State*>();
-    SM.print(SM.source, v);
-    
-    cout << SM.get("mox") << endl;
-    cout << SM.get("moxr") << endl;
-    cout << SM.get("yox") << endl;
-    cout << SM.get("yoxr") << endl;
-
-    return 0;
-}
