@@ -5,4 +5,4 @@
 ### 关于作者
 你好，我是[「**微扰理论**」](https://leetcode-cn.com/u/wfnuser/)。目前正在连载国服每日一题题解；可以加「微扰酱」微信交个朋友。
 
-![](https://gitee.com/wfnuser/img/raw/master/perturbation.png)
+![](https://github.com/wfnuser/wfnuser/raw/main/banner.png)
