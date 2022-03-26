@@ -4,7 +4,7 @@
 
 using namespace std;
 
-#define INT_MIN -2147483648;
+#define INT_MIN -2147483648
 
 class State {
 public:
@@ -112,6 +112,7 @@ public:
             p = p->nextStates[c].first;
             w += p->weight;
         }
+        if (p->nextStates.find(' ') == p->nextStates.end()) return INT_MIN;
 
         return w;
     }
