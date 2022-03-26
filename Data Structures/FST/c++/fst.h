@@ -1,22 +1,23 @@
-#include<cstdio>
-#include<cstdlib>
 #include<iostream>
 #include<unordered_map>
 #include<vector>
 
-#define INT_MIN -2147483648;
-
 using namespace std;
+
+#define INT_MIN -2147483648
 
 class State {
 public:
-    // pointers to next state
+    // tag is one character in some keys
+    char tag;
+    // each state should bind with weight
+    int weight;
+
+    // each state contains pointers to next state
+    // each arc should bind with weight
     unordered_map<char, pair<State*, int> > nextStates;
     // pointers back to prev state | tagged by char
     unordered_map<char, vector<State*> > prevStates;
-
-    char tag;
-    int weight;
     
     State(char tag, int weight) : tag(tag), weight(weight) {
         nextStates = unordered_map<char, pair<State*, int> >();
@@ -28,12 +29,24 @@ public:
     State* source;
     State* sink;
 
+    // source state as every keys begin
+    // sink state as every keys end
     StateMachine() {
         source = new State(' ', 0);
         sink = new State(' ', 0);
     }
-
-    // TODO: should bind weight in the edges
+    
+    /** 
+     * Add function is for insert key-value.
+     * s is the key and w is the value.
+     * Weight should be spread over every state and arc along the path.
+     * The add will be separated into two steps. 
+     * First, we will traverse or create each states for `s` by traverse each character from front to back.
+     * Then we will try to combine some states together to save memory.
+     * We will do this by traversing the path from back to front. To see if each state is exactly the same with another.
+     * If it is, we will combine these two states and release the space.
+     * TODO: should bind weight in the edges
+    */
     void add(string s, int w) {
         State* cur = source;
         vector<State*> curStates;
@@ -93,7 +106,9 @@ public:
                 if (flag) {
                     curStates[i-1]->nextStates[s->tag] = make_pair(s, curStates[i]->weight - s->weight);
                     s->prevStates[curStates[i-1]->tag].push_back(curStates[i-1]);
+                    auto tmp = p->prevStates[s->tag].back();
                     p->prevStates[s->tag].pop_back();
+                    delete(tmp);
                     p = s;
                     combined = true;
                     break;
@@ -103,6 +118,14 @@ public:
         }
     }
 
+    /**
+     * Get value of key.
+     * Compare to `add`, `get` is much more easy to implement.
+     * We can just traverse key's characters, and see if there is a state corresponding to it.
+     * If not, the key is not in FST.
+     * If the last state we traversed has a pointer to sink.
+     * We should sum all the state weights and arc weights and return.
+     */
     int get(string key) {
         State* p = source;
         int w = 0;
@@ -112,6 +135,7 @@ public:
             p = p->nextStates[c].first;
             w += p->weight;
         }
+        if (p->nextStates.find(' ') == p->nextStates.end()) return INT_MIN;
 
         return w;
     }
@@ -131,24 +155,3 @@ public:
         }
     }
 };
-
-int main() {
-
-    auto SM = StateMachine();
-    
-    SM.add("mox", 10);
-    SM.add("moxr", 5);
-    SM.add("yox", 2);
-    SM.add("yoxr", 8);
-    SM.add("zox", 6);
-    SM.add("uox", 1);
-    vector<State*> v = vector<State*>();
-    SM.print(SM.source, v);
-    
-    cout << SM.get("mox") << endl;
-    cout << SM.get("moxr") << endl;
-    cout << SM.get("yox") << endl;
-    cout << SM.get("yoxr") << endl;
-
-    return 0;
-}
