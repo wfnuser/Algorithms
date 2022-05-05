@@ -5,8 +5,8 @@
 - 参考答案由 [「**微扰理论**」](https://github.com/wfnuser) 整理至 [questions](https://github.com/wfnuser/Algorithms/tree/main/Interview/Fundamental/questions) 目录
 
 感兴趣的小伙伴可以加群一起讨论哦～
-<img src="https://user-images.githubusercontent.com/8191686/166963093-9fa5abac-e6e9-49ed-82a4-7f021a4218d4.png" width = "300"/>
 对数据库内核开发感兴趣的同学也可以投递简历至 huangqinghao@hashdata.cn
+<img src="https://user-images.githubusercontent.com/8191686/166963093-9fa5abac-e6e9-49ed-82a4-7f021a4218d4.png" width = "300"/>
 
 ## 2022/05/05
 - TCP连接为什么要进行三次握手？
