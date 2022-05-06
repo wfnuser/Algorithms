@@ -6,6 +6,7 @@ TCP连接建立时需要在双方都维护一个序列号(ISN)并通知对方；
 两次握手是不够的，四次握手则没有必要。
 
 Client  Server
+---
     ->SYN
     <-ACK/SYN
     ->ACK
