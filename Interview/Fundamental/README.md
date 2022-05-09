@@ -15,4 +15,6 @@
 ## 2022/05/07
 - 什么是TCP粘包现象？[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#什么是TCP粘包现象？)
 ## 2022/05/08
-- 在C++中什么是右值引用？
+- 在C++中什么是右值引用？[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#在C++中什么是右值引用？)
+## 2022/05/09
+- C语言如何对字符串判空？
