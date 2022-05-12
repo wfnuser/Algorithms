@@ -1,5 +1,5 @@
 ## Algorithms
-本仓库旨在实现各种常用算法，欢迎大家来提issue或者pr。
+本仓库旨在实现各种常用算法，欢迎大家来提issue或者pr。如果觉得有帮助的话；**也欢迎点个star**，这是对我最好的支持和鼓励。
 可以配合极客时间专栏[《算法实战高手课》](https://time.geekbang.org/column/intro/100100901?code=I%252F1%252FovCrth0wXifam7LWC3eGnJy9VdcYcfWACA1NG%252Fk%253D&utm_term=SPoster&page=A) 一起学习。从推荐链接订阅的话可以找「微扰酱」返现哦～ 
 
 ### 八股文·每日一题
