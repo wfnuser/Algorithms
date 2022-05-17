@@ -12,7 +12,8 @@
 
 感兴趣的小伙伴可以加群一起讨论哦～
 对数据库内核开发感兴趣的同学也可以投递简历至 huangqinghao@hashdata.cn
-<img src="https://user-images.githubusercontent.com/8191686/166963093-9fa5abac-e6e9-49ed-82a4-7f021a4218d4.png" width = "300"/>
+<img src="https://user-images.githubusercontent.com/8191686/168793362-2ae023c1-f73d-428f-841e-6d6ffa8ca4c1.png" width = "200"/>
+
 
 ### 关于作者
 你好，我是[「**微扰理论**」](https://leetcode-cn.com/u/wfnuser/)。目前正在连载国服每日一题题解；可以加「微扰酱」微信交个朋友。
