@@ -9,8 +9,10 @@
 <img src="https://user-images.githubusercontent.com/8191686/168793362-2ae023c1-f73d-428f-841e-6d6ffa8ca4c1.png" width = "300"/>
 
 
+## 2022/05/27
+- 什么是存算分离架构？
 ## 2022/05/14
-- TCP断开连接为什么需要四次挥手？
+- TCP断开连接为什么需要四次挥手？[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#TCP断开连接为什么需要四次挥手？)
 ## 2022/05/12
 - TCP是如何做拥塞控制的？ [参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#TCP是如何做拥塞控制的？)
 ## 2022/05/11
