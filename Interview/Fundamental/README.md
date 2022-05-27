@@ -9,24 +9,25 @@
 ![](https://github.com/wfnuser/wfnuser/raw/main/banner.png)
 
 
-
+## 2022/05/28
+- TCP中的TIME_WAIT状态是什么
 ## 2022/05/27
-- 什么是存算分离架构？
+- 什么是存算分离架构[参考答案](/Interview/Fundamental/questions/DistributedSystem/分布式系统架构.md#什么是存算分离架构)
 ## 2022/05/14
-- TCP断开连接为什么需要四次挥手？[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#TCP断开连接为什么需要四次挥手？)
+- TCP断开连接为什么需要四次挥手[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#TCP断开连接为什么需要四次挥手)
 ## 2022/05/12
-- TCP是如何做拥塞控制的？ [参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#TCP是如何做拥塞控制的？)
+- TCP是如何做拥塞控制的 [参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#TCP是如何做拥塞控制的)
 ## 2022/05/11
-- TCP协议中的滑动窗口是指什么？[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#TCP协议中的滑动窗口是指什么？)
+- TCP协议中的滑动窗口是指什么[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#TCP协议中的滑动窗口是指什么)
 ## 2022/05/10
-- C++的内存序是指什么？[TODO: 延后更新]
+- C++的内存序是指什么[TODO: 延后更新]
 ## 2022/05/09
-- C语言如何对字符串判空？[参考答案](/Interview/Fundamental/questions/c/C语言常考问题汇总.md#C语言如何对字符串判空？)
+- C语言如何对字符串判空[参考答案](/Interview/Fundamental/questions/c/C语言常考问题汇总.md#C语言如何对字符串判空)
 ## 2022/05/08
-- 在C++中什么是右值引用？[参考答案](/Interview/Fundamental/questions/c++/C++常考问题汇总.md#在C++中什么是右值引用？)
+- 在C++中什么是右值引用[参考答案](/Interview/Fundamental/questions/c++/C++常考问题汇总.md#在C++中什么是右值引用)
 ## 2022/05/07
-- 什么是TCP粘包现象？[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#什么是TCP粘包现象？)
+- 什么是TCP粘包现象[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#什么是TCP粘包现象)
 ## 2022/05/06
-- 在TCP中什么是半连接队列？[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#在TCP中什么是半连接队列？)
+- 在TCP中什么是半连接队列[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#在TCP中什么是半连接队列)
 ## 2022/05/05
-- TCP连接为什么要进行三次握手？[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#TCP连接为什么要进行三次握手？)
+- TCP连接为什么要进行三次握手[参考答案](/Interview/Fundamental/questions/network/TCP常考问题汇总.md#TCP连接为什么要进行三次握手)
