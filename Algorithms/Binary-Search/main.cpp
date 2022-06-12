@@ -6,6 +6,10 @@ bool judge(int guess, int target) {
     return guess <= target;
 }
 
+bool judge2(int guess, int target) {
+    return guess < target;
+}
+
 int binary_search_ml(vector<int>& nums, int target) {
     int l = 0;
     int r = nums.size() - 1;
@@ -28,7 +32,7 @@ int binary_search_nb(vector<int>& nums, int target) {
 
     while (l < r) {
         int mid = (l + r) / 2;
-        if (judge(nums[mid], target)) {
+        if (judge2(nums[mid], target)) {
             l = mid + 1;
         } else {
             r = mid;
@@ -60,9 +64,9 @@ int binary_search(vector<int>& nums, int target) {
 int main() {
     int tmp[] = {1, 2, 3, 3, 3, 4, 5, 6};
     vector<int> nums(tmp, tmp + 8);
-    cout << binary_search(nums, 3) << endl;
-    // cout << binary_search_ml(nums, 3) << endl;
-    // cout << binary_search_nb(nums, 3) << endl;
+    cout << binary_search(nums, 3) << endl; // any target
+    cout << binary_search_ml(nums, 3) << endl; // last target
+    cout << binary_search_nb(nums, 3) << endl; // first target
     return 0;
 }
 
