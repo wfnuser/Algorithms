@@ -1,3 +1,4 @@
 [submodule "Leetcode"]
 	path = Leetcode
 	url = https://github.com/wfnuser/leetcode
+    branch = master
